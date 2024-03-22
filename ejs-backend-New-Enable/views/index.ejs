@@ -1,0 +1,28 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todos</title>
+</head>
+<body>
+  <h1>Todos</h1>
+  <ul>
+    <% todos.forEach(todo => { %>
+      <li>
+        <%= todo.title %> - <%= todo.description %>
+        <a href="/todos/<%= todo._id %>/edit">Edit</a>
+        <!-- <form action="/todos/<%= todo._id %>?_method=DELETE" method="post" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form> -->
+        <form action="/todos/<%= todo._id %>?_method=DELETE" method="POST" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+        
+      </li>
+    <% }) %>
+  </ul>
+  <a href="/todos/new">Create New Todo</a>
+</body>
+</html>
